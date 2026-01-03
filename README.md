@@ -228,6 +228,20 @@ No multi-valued dependencies exist. All attributes depend solely on the primary 
 ```sql
 CREATE INDEX IF NOT EXISTS idx_coastalzone_geom ON coastalzone USING GIST (geom);
 CREATE INDEX IF NOT EXISTS idx_elevation_rast ON elevation USING GIST (ST_ConvexHull(rast));
+```
+
+-Extracting Coastal Elevation Data: Attempted to create a table for only the coastal sections of the elevation raster:
+
+```sql
+CREATE TABLE elevation_coastal AS 
+SELECT e.rast
+FROM elevation e
+WHERE EXISTS (
+    SELECT 1 FROM coastalzone c
+    WHERE ST_Intersects(e.rast, c.geom)
+);
+```
+> **Note:** The query executed successfully but returned no output. Consequently, the initial objective of creating a 1-meter sea-level rise inundation map could not be achieved. These data limitations constrained the analysis of areas susceptible to inundation along the Massachusetts coast.
 
 
 ## Coastal Zone Analysis: Understanding Infrastructure and Habitat Dynamics in Massachusetts
