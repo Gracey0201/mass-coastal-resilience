@@ -1,107 +1,136 @@
 # Massachusetts Coastal Resilience
+**PostGIS-Based Spatial Database and Coastal Vulnerability Analysis**
 
-## FinalProject
-Repo for my database management class project
-## Introduction
-Globally, coastal areas including Massachusetts coastal areas are facing the looming threat of sea level rise because of climate change. With Massachusetts having extensive coastline and diverse ecosystems, understanding the vulnerability of these coastal regions to sea level rise is essential. This project aims to analyze and map areas along the coast of Massachusetts that are susceptible to inundation from rising sea levels. By incorporating projections of future sea level rise scenarios, critical infrastructure, residential areas, and ecological habitats at risk can be identified, aiding in informed decision-making and proactive planning efforts.
+---
 
-##
-The Massachusetts coastline boasts a diverse array of ecosystems and supports numerous human activities, including urban development, agriculture, transportation, and healthcare services. Understanding the spatial relationships between infrastructure and natural habitats within the coastal zone is crucial for effective land use planning, conservation, and sustainable development. This project aims to analyze various infrastructure layers and ecological habitats within the Massachusetts coastal zone to gain insights into their spatial interactions and potential impacts on the environment.
+## Overview
 
-## Purpose
-The primary purpose of this project is to assess the vulnerability of coastal areas in Massachusetts to sea level rise specifically 1 meter sea level rise and its associated impacts. By creating detailed maps that visualize areas at risk of inundation under various sea level rise scenarios, stakeholders can better understand the magnitude of the threat and prioritize adaptation and mitigation measures. Additionally, identifying critical infrastructures, residential areas, and ecological habitats that may be impacted allows for targeted interventions to protect assets, safeguard communities, and preserve important ecosystems in the face of climate change.
+This repository contains a spatial database and a GIS analysis workflow designed to examine coastal vulnerability, infrastructure exposure, and ecological habitat dynamics along the Massachusetts coastline. Using **PostGIS**, raster–vector integration, and spatial SQL, the project explores how critical infrastructure, healthcare access, land use, and sensitive ecological cores intersect within the coastal zone under climate-related stressors.
 
-##
-This project seeks to assess the distribution, density, and spatial relationships of infrastructure features (such as buildings, roads, and healthcare centers) and ecological habitats (including cropland) within the Massachusetts coastal zone. By conducting spatial analyses, I seek to understand how human activities and development patterns intersect with natural ecosystems, identify areas of potential vulnerability, which will inform decision-making processes related to coastal zone management and conservation.
+The project supports **coastal zone management, resilience planning, and environmental decision-making** by demonstrating how spatial databases can integrate heterogeneous geospatial datasets into a unified analytical framework.
 
-## Importance
-- Helps to quantify vulnerability of coastal areas as well as identifies specific areas of concern facilitating the development of adaptation strategies that minimize risks and maximize societal and ecological benefits.
-- It promotes collaboration in implementing solutions that ensure the long-term sustainability and vitality of coastal communities and ecosystems by raising awareness about the impacts of sea level rise and the need for concerted action among diverse stakeholders.
-- The project contributes to building a more resilient and climate-resilient future for the state by tackling the challenges posed by sea level rise head-on.
-- Assessing the accessibility of healthcare facilities within the coastal zone helps identify areas with limited access to essential services. This information can guide efforts to improve healthcare access and address disparities in healthcare provision.
-- : By integrating spatial analysis techniques, this project supports efforts to promote sustainable development practices that balance the needs of human populations with the conservation of coastal ecosystems
+---
 
-## Data and Sourcces
-The data included in this repository are:
+## Project Objectives
 
-1 Digitized Elevation Model(DEM) (TIF) [(https://coast.noaa.gov/slrdata/)]
+- Assess the vulnerability of Massachusetts coastal areas to **sea level rise**, with an initial focus on a **1-meter inundation scenario**
+- Identify **critical infrastructure**, residential areas, healthcare facilities, and ecological habitats located within the coastal zone
+- Analyze spatial interactions between **human systems** and **natural ecosystems**
+- Demonstrate the use of **PostGIS** for scalable raster–vector coastal analysis
 
-2 Aquatic Core (SHP) [(https://www.mass.gov/info-details/massgis-data-biomap-the-future-of-conservation?)]
+> Due to data and performance constraints, the final analysis emphasizes **coastal infrastructure and habitat dynamics**, with limitations on inundation modeling documented below.
 
-3 Rare Species Core (SHP)  [(https://www.mass.gov/info-details/massgis-data-biomap-the-future-of-conservation?)]
+---
 
-4 Forest  Core (SHP)  [(https://www.mass.gov/info-details/massgis-data-biomap-the-future-of-conservation?)]
+## Why This Matters
 
-5 Building Structures (SHP)  [(https://www.mass.gov/info-details/massgis-data-building-structures-2-d?)]
+- Coastal Massachusetts supports dense development, transportation networks, healthcare services, and ecologically sensitive habitats.
+- Understanding these spatial overlaps is essential for **risk reduction**, **adaptation planning**, and **equitable service access**.
+- The project demonstrates how spatial databases can:
+  - Quantify exposure
+  - Identify vulnerable overlaps
+  - Support evidence-based coastal planning
 
-6 Cropland (SHP) [(https://www.mass.gov/info-details/massgis-data-2016-land-coverland-use?)]
+---
 
-7 Community Health Centers (SHP) [(https://www.mass.gov/info-details/massgis-data-community-health-centers)]
+## Key Skills Demonstrated
 
-8 Roads (SHP) [(https://www.mass.gov/info-details/massgis-data-massgis-massdot-roads)]
+- PostGIS raster and vector data management  
+- Spatial indexing and query optimization (GiST)  
+- Raster–vector overlay analysis  
+- Buffer, proximity, and intersection analysis  
+- Database normalization (1NF–4NF)  
+- GIS decision-support workflow design  
+- Integration of NOAA, MassGIS, and Google Earth Engine data  
 
-9 Major Roads (SHP) [(https://www.mass.gov/info-details/massgis-data-massgis-massdot-roads)]
+---
 
-10 Land cover (TIF)  [(https://code.earthengine.google.com/952954e5d84869f2683ab53aa0887724)]
+## Data Sources
 
+The project integrates publicly available datasets:
 
-_codes I use in downding and exporting my landcover data from Google Earth Engine_
+1. **Digital Elevation Model (DEM)** – [NOAA Sea Level Rise Viewer](https://coast.noaa.gov/slrdata/)  
+2. **Aquatic Core Areas** – [MassGIS BioMap](https://www.mass.gov/info-details/massgis-data-biomap-the-future-of-conservation?)  
+3. **Rare Species Core Areas** – [MassGIS BioMap](https://www.mass.gov/info-details/massgis-data-biomap-the-future-of-conservation?)  
+4. **Forest Core Areas** – [MassGIS BioMap](https://www.mass.gov/info-details/massgis-data-biomap-the-future-of-conservation?)  
+5. **Building Structures** – [MassGIS](https://www.mass.gov/info-details/massgis-data-building-structures-2-d?)  
+6. **Cropland** – [MassGIS Land Cover](https://www.mass.gov/info-details/massgis-data-2016-land-coverland-use?)  
+7. **Community Health Centers** – [MassGIS](https://www.mass.gov/info-details/massgis-data-community-health-centers)  
+8. **Roads and Major Roads** – [MassDOT / MassGIS](https://www.mass.gov/info-details/massgis-data-massgis-massdot-roads)  
+9. **Land Cover Raster** – [Google Earth Engine](https://code.earthengine.google.com/952954e5d84869f2683ab53aa0887724)  
 
+Land cover data were downloaded and exported using Google Earth Engine:
 
-![GEE code](https://github.com/Gracey0201/FinalProject/blob/main/GEE%20code.PNG)
-
+![GEE code](https://github.com/Gracey0201/FinalProject/blob/main/GEE%20code.PNG)  
 ![GEE code2](https://github.com/Gracey0201/FinalProject/blob/main/GEE%20code2.PNG)
 
+---
 
+## Preprocessing
 
-#### Preprocessing in QGIS
+- Clipped all raster and vector datasets to the **Massachusetts coastal zone boundary** for performance optimization  
+- Projected all data to **EPSG:26986 (NAD83 / Massachusetts Mainland)**  
+- Preprocessing conducted in **QGIS**
 
-I had to preform some basic preprocessing of my data before using the them. I clipped all of my vecotor and raster data to the Massachusetts Coastal zone boundary  to optimize computational resources during our analysis. I also projected all my data to EPSG:26986 - NAD83 / Massachusetts Mainland to avoid no errors as a result of projection from occurring.
-
-![MA Coastal Map](https://github.com/Gracey0201/FinalProject/blob/main/LayersMap.png)
-
+![MA Coastal Map](https://github.com/Gracey0201/FinalProject/blob/main/LayersMap.png)  
 ![MA Coastal Map2](https://github.com/Gracey0201/FinalProject/blob/main/finapprojectmap.PNG)
+
+---
 
 
 ## Methodology
 
-- Create Sealevelrise database and enable  postgis extenstion
-- Generate tables both raster and vector needed for datanormalization in the analysis
+The methodology for this project involved creating a PostGIS-based spatial database, preparing raster and vector datasets, normalizing tables, and performing spatial queries to analyze coastal vulnerability in Massachusetts.
 
-- I converted all the shapefiles to sql files by using the shp2pgsql function. An example of this code is:
+### Database Setup
+- Created the `Sealevelrise` database and enabled the PostGIS extension.
+- Generated tables for both raster and vector datasets required for normalization and analysis.
 
-`"C:\Users\default.DESKTOP-GCP9U73\OneDrive - Clark University\Documents\DATABASE MANAGEMENT\FinalProject">"C:\Program Files\PostgreSQL\16\bin\shp2pgsql" -s 4326 -I Data\Buildings.shp building_vector > building.sql`
+### Shapefile Conversion to SQL
+- All shapefiles were converted to SQL files using the `shp2pgsql` function.  
+  Example command:
 
-- Next, I also converted my raster into .sql files using the raster2pgsql function. An example of this code is:
+```bash
+"C:\Users\default.DESKTOP-GCP9U73\OneDrive - Clark University\Documents\DATABASE MANAGEMENT\FinalProject">"C:\Program Files\PostgreSQL\16\bin\shp2pgsql" -s 4326 -I Data\Buildings.shp building_vector > building.sql
 
-  `"C:\Users\default.DESKTOP-GCP9U73\OneDrive - Clark University\Documents\DATABASE MANAGEMENT\FinalProject">"C:\Program Files\PostgreSQL\16\bin\raster2pgsql" -s 4326 -t 1000x1000 -I -C -M  Data\Clipped_DEM.tif elevation > DEM.sql`
+### Raster Conversion to SQL
 
- `"C:\Users\default.DESKTOP-GCP9U73\OneDrive - Clark University\Documents\DATABASE MANAGEMENT\FinalProject">"C:\Program Files\PostgreSQL\16\bin\raster2pgsql" -s 4326 -t 1000x1000 -I -C -M  Data\LULC_ClippeD.tif landcover > lulc.sql`
+-Raster datasets were converted to .sql files using the raster2pgsql function.
+Example commands:
 
-- The newly created vector and raster sql files were imported to PgAdmin database by reading the file into the already created database "sealevelrise" An example of this code is:
-  
-`pgsql -U postgres -d Flooding -f "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\boreholes.sql"`
+"C:\Users\default.DESKTOP-GCP9U73\OneDrive - Clark University\Documents\DATABASE MANAGEMENT\FinalProject">"C:\Program Files\PostgreSQL\16\bin\raster2pgsql" -s 4326 -t 1000x1000 -I -C -M  Data\Clipped_DEM.tif elevation > DEM.sql
 
-- I created empty tables for some of my vector layers, like the Aquatic core table, populating them with columns from the original data relevent to my analysis. Using the code below.
+"C:\Users\default.DESKTOP-GCP9U73\OneDrive - Clark University\Documents\DATABASE MANAGEMENT\FinalProject">"C:\Program Files\PostgreSQL\16\bin\raster2pgsql" -s 4326 -t 1000x1000 -I -C -M  Data\LULC_ClippeD.tif landcover > lulc.sql
 
--- Creating tables from existing table to extract columns needed for my analysis
+### Importing SQL Files into PostgreSQL
+
+-The generated vector and raster SQL files were imported into the Sealevelrise database using PgAdmin.
+Example command:
+
+pgsql -U postgres -d Flooding -f "C:\Users\rutha\OneDrive - Clark University\Documents\SpatialDatabase\FloodingProject\LocalVersion\boreholes.sql"
+
+### Creating Cleaned Tables
+
+-Empty tables were created for some vector layers (e.g., Aquatic Core) and populated with only the relevant columns for analysis.
+Example: Aquatic Core Table
 
  ```SQL
 CREATE TABLE aquaticcore_clean_vector(
-gid int PRIMARY KEY,
-shape_area numeric,
-shape_len numeric,
-geom GEOMETRY
+    gid int PRIMARY KEY,
+    shape_area numeric,
+    shape_len numeric,
+    geom GEOMETRY
 );
 ```
 
--- populate the new table with columns
+-populate the new table with columns
 
  ```SQL
 INSERT INTO floodwalls_clean_vector(gid, shape_area, shape_len,  geom)
 SELECT gid, shape_area, shape_len,  geom
 FROM aquaticcore_vector;
 ```
+Rare Species Table
 
  ```SQL
 CREATE TABLE rarespecies_clean_vector(
@@ -114,7 +143,7 @@ shape_len numeric,
 geom GEOMETRY
 );
 ```
--- populate the new table with columns
+- populate the new table with relevant columns
 
  ```SQL
 INSERT INTO building_clean_vector(gid, ac_ch_rare, town, ac_rscxtwn, shape_area, shape_len, geom)
@@ -122,105 +151,95 @@ SELECT gid, ac_ch_rare, town, ac_rscxtwn, shape_area, shape_len, geom
 FROM rarespecies_vector;
 ```
 
+---
 ## Normalization of Tables
-Database normalization involves a systematic approach to organizing data within a database to reduce redundancy and improve data integrity.
+
+Database normalization is a systematic process for organizing data in a database to reduce redundancy, ensure data integrity, and improve query performance and maintenance efficiency.
 
 ### Reasons for Normalization
 
-- To prevent redundancy in data.
-- To simplify database structure.
-- To maintain consistent relationships between tables.
-- To facilitate easier database maintenance and updates.
+- Prevent redundancy in data storage.
+- Simplify database structure for easier maintenance.
+- Maintain consistent relationships between tables.
+- Facilitate updates and minimize errors.
 
 ### Checking for Normalization
 
-_All the tables created in this analysis are normalized, that is, they are all in 1NF, 2NF, 3NF and 4NF because of the reasons stated below_
+_All tables in this analysis are fully normalized to 1NF, 2NF, 3NF, and 4NF._
 
 #### First Normal Form (1NF)
-
-There are no multiple values stored in a single cell of these tables, thereby reducing complexity.
+No table stores multiple values in a single cell, reducing complexity and improving clarity.
 
 #### Second Normal Form (2NF)
-
-Since the tables are already in 1NF, and there are no partial dependencies (that is, all non-prime attributes are depending on the entire primary key), therefore, they satisfies Second Normal Form (2NF).
+All tables in 1NF have no partial dependencies; every non-key attribute depends on the full primary key, satisfying 2NF requirements.
 
 #### Third Normal Form (3NF)
+There are no transitive dependencies among non-prime attributes. Every non-key attribute depends directly on the primary key (`gid`), meeting 3NF criteria.
 
-They also meet the requirements of 3NF as they are already in 1NF and 2NF, and there are no transitive dependencies among non-prime attributes, each non-key attribute in thes tables are  directly dependent on the primary key (gid). Therefore, they meet the requirements of the 3NF.
+#### Fourth Normal Form (4NF)
+No multi-valued dependencies exist. All attributes depend solely on the primary key (`gid`), ensuring 4NF compliance.
 
- #### Fouth Normal Form (4NF)
+---
 
-There seems not to be any multi-valued dependencies present in all the tables. Each attribute seems to depend only on the primary key (gid) and not on combinations of other non-key attributes.
-They thsrefore satisfy the requirements for Fourth Normal Form (4NF), given that they are already in 3NF, and there are no multi-valued dependencies present as each attribute seems to depend only on the primary key (gid) and not on combinations of other non-key attributes.
+### Tables and Visuals
 
-
-### Tables
-### Aquatic Core Table
+#### Aquatic Core Table
 ![Aquatic core table](https://github.com/Gracey0201/FinalProject/blob/main/Tables/Aquatic_core.PNG)
 
-### Coastal Zone Table
-![Coaastal Zone Table](https://github.com/Gracey0201/FinalProject/blob/main/Tables/Coastalzone.PNG)
+#### Coastal Zone Table
+![Coastal Zone Table](https://github.com/Gracey0201/FinalProject/blob/main/Tables/Coastalzone.PNG)
 
-### Coastline Table
+#### Coastline Table
 ![Coastline Table](https://github.com/Gracey0201/FinalProject/blob/main/Tables/Coastline.PNG)
 
-### Cropland Table
+#### Cropland Table
 ![Cropland Table](https://github.com/Gracey0201/FinalProject/blob/main/Tables/Cropland.PNG)
 
-### Forest Core Table
+#### Forest Core Table
 ![Forest Core Table](https://github.com/Gracey0201/FinalProject/blob/main/Tables/Forest_core.PNG)
 
-### Major Roads Table
+#### Major Roads Table
 ![Major Roads Table](https://github.com/Gracey0201/FinalProject/blob/main/Tables/major_roads.PNG)
 
-### Roads table
-![Roads table](https://github.com/Gracey0201/FinalProject/blob/main/Roads.PNG)
+#### Roads Table
+![Roads Table](https://github.com/Gracey0201/FinalProject/blob/main/Roads.PNG)
 
-### Road Table2
-![Roads2 table](https://github.com/Gracey0201/FinalProject/blob/main/Roads2.PNG)
+#### Roads Table 2
+![Roads2 Table](https://github.com/Gracey0201/FinalProject/blob/main/Roads2.PNG)
 
-### Building Table
+#### Building Table
 ![Building Table](https://github.com/Gracey0201/FinalProject/blob/main/Cleaned%20Table/Building.PNG)
 
-### Community Health Center Table
+#### Community Health Center Table
 ![Community Health Center Table](https://github.com/Gracey0201/FinalProject/blob/main/Cleaned%20Table/Community_health_center.PNG)
 
-### Community Health Center Table2
+#### Community Health Center Table 2
 ![Community Health Center2 Table](https://github.com/Gracey0201/FinalProject/blob/main/Cleaned%20Table/Community_health_center2.PNG)
 
-### Rare Species Core Table
+#### Rare Species Core Table
 ![Rare Species Core Table](https://github.com/Gracey0201/FinalProject/blob/main/Cleaned%20Table/Rarespecies.PNG)
 
-## Spatial Query
-- I used the query below to speed the spatial query relating to the elevation table
-  
--- Create spatial indexes for performance optimization
+---
 
- ```SQL
+## Spatial Query Optimization
+
+- **Creating Spatial Indexes**: To improve query performance on vector and raster datasets:
+
+```sql
 CREATE INDEX IF NOT EXISTS idx_coastalzone_geom ON coastalzone USING GIST (geom);
 CREATE INDEX IF NOT EXISTS idx_elevation_rast ON elevation USING GIST (ST_ConvexHull(rast));
-```
 
--- Then I try creating a table with only the coastal sections of the elevation data
-
- ```SQL
-CREATE TABLE elevation_coastal AS 
-SELECT e.rast
-FROM elevation e
-WHERE EXISTS (
-    SELECT 1 FROM coastalzone c
-    WHERE ST_Intersects(e.rast, c.geom)
-);
-```
-
-_the query ran successful but it retured no output. So, I could not continue with my initial objective of creating a 1 meter sea level rise, therefore could analyze and map areas along the coast of Massachusetts that are susceptible to inundation from rising sea levels_
 
 ## Coastal Zone Analysis: Understanding Infrastructure and Habitat Dynamics in Massachusetts
-This focuses on analyzing various aspects of infrastructure (such as buildings, roads, and healthcare centers) and ecological habitat dynamics within the Massachusetts coastal zone, with the aim of understanding spatial relationships, assess impacts, which will inform decision-making processes related to coastal zone management and conservation.
+_Infrastructure and Habitat Intersections_
 
-_Identify Infrastructure within the Coastal Zone_
+-Identified buildings, roads, cropland, and healthcare facilities within the coastal zone.
+-Examined the overlap of cropland with sensitive ecological cores.
+-Assessed healthcare accessibility and proximity to transportation networks.
 
-The query selects infrastructure features (buildings, cropland, community health centers, roads) that fall within the Massachusetts coastal zone boundary, which helps in identifying the extent of human activities and infrastructure development within the coastal zone.
+Example Queries
+
+The query selects infrastructure features (buildings, cropland, community health centers, roads) that fall within the Massachusetts coastal zone boundary, thereby identifying the extent of human activities and infrastructure development within the coastal zone.
 
  ```SQL
 SELECT 
@@ -259,11 +278,11 @@ WHERE
 ```
 
 
--- Incoporating landcover layer into the analysis
+-- Incorporating landcover layer into the analysis
 
 _Overlay analysis_
 
-This query is essential in  understanding how different land use/land cover types are distributed in relation to infrastructure features, as well as provide insights into patterns of development, potential conflicts, and opportunities for land use planning and management within the coastal zone.
+This query is essential for understanding how different land-use/land-cover types are distributed relative to infrastructure features, and for providing insights into patterns of development, potential conflicts, and opportunities for land-use planning and management within the coastal zone.
 
  ```SQL
 CREATE TABLE landcover_near_building AS
@@ -324,7 +343,7 @@ WHERE
 
 _Identify Cropland within Aquatic Core Areas_
 
-With this query, the encroachment of cropland into aquatic and rare species cores can be identified which can fragment these natural habitats, disrupting ecosystems and reducing biodiversity. They can also contribute to water quality and quantity issue as they can contribute to water pollution through the use of fertilizers, pesticides, and herbicides, affecting water quality in aquatic habitats. Further, irrigation from cropland can reduce water resources, decreasing water availability for aquatic species and other ecosystems.
+This query identifies the encroachment of cropland into aquatic and rare species cores, which can fragment these natural habitats, disrupt ecosystems, and reduce biodiversity. They can also affect water quantity and quality by contributing to pollution from fertilizers, pesticides, and herbicides, thereby degrading aquatic habitats. Further, irrigation from cropland can reduce water resources, decreasing water availability for marine species and other ecosystems.
 
  ```SQL
 CREATE TABLE cropland_in_aquatic_core AS
@@ -348,7 +367,7 @@ JOIN rarespecies_clean_vector ra ON ST_Intersects(c.geom, ra.geom);
 
 _Overlay Analysis_
 
-The two queries below on major and minor roads creates new tables that contains major and minor roads and their corresponding coastal zones, providing spatial information about transportation infrastructure in coastal areas. This can be useful for various analyses, such as transportation planning, disaster response, and environmental impact assessments
+The two queries below, which create new tables, contain major and minor roads and their corresponding coastal zones, providing spatial information on transportation infrastructure in coastal areas. This can be useful for various analyses, such as transportation planning, disaster response, and environmental impact assessments.
 
  ```SQL
 CREATE TABLE majorroads_in_coastal AS
@@ -370,21 +389,44 @@ FROM roads_vector r
 JOIN coastalzone_vector c ON ST_Intersects(r.geom, c.geom);
 ```
 
-_The map below is the result of some of the spatial queries above_
+## Result Map
+_Massachusetts Coastal Map_
 
 ![MA Coastal Map3](https://github.com/Gracey0201/FinalProject/blob/main/Updated_AnalysisMap.png)
 
 ## Challenges
-- The bunk of the challenge I encountered in this project was with the elevation data. I took so long to generate the table, then, I could not also view the table even after it successfully generated because of the size of the content. As a result, I was not able to create the elevation coastal table with the elevation data which prevented the initial objective of creating a sea level rise map. This limitation might likely stemmed from inaccuracy of the elevation data. This hindered my creation of flood inundation model and other analyses related to sea level rise impacts.
-- I also ran into some issue of creating some tables to incorporate in my analysis, they ran succefully but produce just the table name and column without populating the columns thereby making some of analysis incomplete, and limiting my intended analysis without being able to draw meaningful conclusions or view the result on the query.
+-Elevation raster size prevented creation of a 1-meter coastal inundation layer.
+
+-Some spatial joins returned empty results due to raster–vector complexity.
+
+-Limited elevation data prevented the creation of flood inundation models and a complete analysis.
 
 ## Conclusion
-The analysis carried out in this project was focused on understanding the spatial relationships and assessing the impacts of infrastructure and ecological habitat dynamics within the Massachusetts coastal zone. Through a series of GIS queries and spatial analyses, various aspects of infrastructure, including buildings, roads, and healthcare centers, were examined, along with the encroachment of cropland into aquatic and rare species cores. The findings from these analyses provide valuable insights that can inform decision-making processes related to coastal zone management and conservation. The findings from this project contribute to a better understanding of the spatial relationships and impacts of infrastructure and ecological habitat dynamics within the Massachusetts coastal zone, providing valuable insights for informed decision-making processes related to coastal zone management and conservation.
+This project demonstrates how PostGIS-based spatial databases can be used to analyze:
 
-#### Useful Resouces
+-Coastal infrastructure exposure
 
-[Raster Data Management, Queries, and Applications for PostGIS EXT](https://postgis.net/docs/using_raster_dataman.html)
-[Class website](https://studyingplace.space/spatial-database/about.html)
+-Ecological habitat vulnerability
+
+-Healthcare accessibility and land use patterns
+
+While inundation modeling was constrained, the analysis provides actionable insights for coastal planning, conservation, and resilience strategies. The workflow is transferable to other regions with improved data.
+
+## Future Work
+
+-Integrate LiDAR-derived DEMs for inundation modeling
+
+-Cloud-based PostGIS workflows
+
+-Time-series land cover change analysis
+
+-Scenario-based coastal risk assessment
+
+#### Useful Resources
+
+- [NOAA Sea Level Rise Viewer](https://coast.noaa.gov/slr/)
+- [MassGIS Data Portal](https://www.mass.gov/orgs/massgis-data)
+- [PostGIS Documentation](https://postgis.net/documentation/)
 
 
 
