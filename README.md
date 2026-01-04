@@ -442,5 +442,13 @@ While inundation modeling was constrained, the analysis provides actionable insi
 - [MassGIS Data Portal](https://www.mass.gov/orgs/massgis-data)
 - [PostGIS Documentation](https://postgis.net/documentation/)
 
+---
+
+## Citation
+
+If you use this repository in your work, please cite it as:
+
+**Grace Nwachukwu. (2026). PostGIS-Based Massachusetts Coastal Resilience Assessment [Data set]. Zenodo. https://doi.org/10.5281/zenodo.18148415**
+
 
 
