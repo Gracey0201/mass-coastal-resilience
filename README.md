@@ -1,11 +1,11 @@
-# Massachusetts Coastal Resilience
+# PostGIS-Based Massachusetts Coastal Resilience Assessment
 **PostGIS-Based Spatial Database and Coastal Vulnerability Analysis**
 
 ---
 
 ## Overview
 
-This repository contains a spatial database and a GIS analysis workflow designed to examine coastal vulnerability, infrastructure exposure, and ecological habitat dynamics along the Massachusetts coastline. Using **PostGIS**, raster–vector integration, and spatial SQL, the project explores how critical infrastructure, healthcare access, land use, and sensitive ecological cores intersect within the coastal zone under climate-related stressors.
+This repository contains a spatial database and a GIS analysis workflow designed to examine coastal vulnerability, infrastructure exposure, and ecological habitat dynamics along the Massachusetts coastline. Using **PostGIS**, raster–vector integration, and spatial SQL, the project examines how critical infrastructure, healthcare access, land use, and sensitive ecological cores intersect within the coastal zone under climate-related stressors.
 
 The project supports **coastal zone management, resilience planning, and environmental decision-making** by demonstrating how spatial databases can integrate heterogeneous geospatial datasets into a unified analytical framework.
 
